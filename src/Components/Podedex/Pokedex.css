@@ -1,0 +1,10 @@
+.pokedex-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+/* .pokedex-wrapper h1 {
+    user-select: none;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   color: rgb(255, 54, 54);
+   margin: 0 auto;
+} */

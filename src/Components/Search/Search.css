@@ -1,0 +1,23 @@
+.search-wrapper{
+    margin: 0 auto;
+}
+#pokemon-name-search {
+    user-select: none;
+    margin-top: 2rem;
+    width: 600px;
+    padding: 1.5rem;
+    border: 3px solid rgb(8, 0, 255);
+    outline: none;
+}
+#pokemon-name-search input[type=text]{
+    font-size: 25px;
+    color: red;
+}
+::placeholder {
+    color: green;
+    opacity: 1;
+    font-size: 24px;
+}
+::text{
+    font-size: 26px;
+}
