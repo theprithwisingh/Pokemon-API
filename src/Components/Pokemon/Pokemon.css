@@ -1,7 +1,7 @@
 .pokemon {
     margin-top: 2rem;
     flex-basis: 20%;
-    height:300px;
+    /* height:200px; */
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
     margin-top: 1.5rem;
     letter-spacing: 0.5rem;
 }
-.pokemon-image img{
+.pokemon-image{
     margin-top: 1.5rem;
     padding-top: .5rem;
     height: 180px;
