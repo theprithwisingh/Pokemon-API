@@ -7,7 +7,8 @@ import usePokemonList from "../../Hooks/usePokemonList";
 
 function PokemonList() {
 
-  const [pokemonListState, setPokemonListState] = usePokemonList('https://pokeapi.co/api/v2/pokemon')
+  // const [pokemonListState, setPokemonListState] = usePokemonList('https://pokeapi.co/api/v2/pokemon',true)
+  const [pokemonListState, setPokemonListState] = usePokemonList(false)
     
 
    

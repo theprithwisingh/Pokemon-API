@@ -1,6 +1,5 @@
 import './PokemonDetails.css'
-// import {useState } from "react";
-import { useParams } from "react-router-dom"
+import {useParams } from "react-router-dom"
 import usePokemonDetails from '../../Hooks/usePokemonDetail';
 
 
@@ -17,8 +16,19 @@ function PokemonDetails() {
         <div className="pokemon-details-types">
            {pokemon.types && pokemon.types.map((t)=><div key={t}>{t}</div>)}
         </div>
+
+        {
+            pokemon.types && pokemon.similarPokemons &&
+
+            <div>
+                more {pokemon.types[0]} types Pokemons
+                <ul>
+                    {pokemon.similarPokemons.map((p)=> <li key={p.pokemon.id}>{p.pokemon.name}</li>)}
+                </ul>
+            </div>
+        }
     </div>
     )
 }
 
-export default PokemonDetails
+export default PokemonDetails;

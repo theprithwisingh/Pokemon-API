@@ -4,25 +4,35 @@ import usePokemonList from "./usePokemonList";
 
 function usePokemonDetails(id){
     const[pokemon, setPokemon] = useState({})
-    // const[isloading, setIsLoading] = useState(true);
-    let pokemonListHookResponse = [];
     async function downloadPokemons(){
-    
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    // console.log(response.data);
-    setPokemon({
+    const pokemonOfSameTypes = axios.get(`https://pokeapi.co/api/v2/types/${response.data.types ? response.data.types[0].type.name :''}`)
+    setPokemon(state=>({
+        ...state,
         name: response.data.name,
         image: response.data.sprites.other.dream_world.front_default,
         weight: response.data.weight,
         height: response.data.height,
         types: response.data.types.map((t)=>t.type.name)
+    }));
+
+    pokemonOfSameTypes.then((response)=>{
+        setPokemon(state=>({
+            ...state,
+            similarPokemons:response.data.pokemon
+        }));
     })
+    setPokemonListState({...pokemonListState,type:response.data.types ? response.data.types[0].type.name :''});
     }
-    pokemonListHookResponse = usePokemonList(`https://pokeapi.co/api/v2/type/${pokemon.types ? pokemon.type[0]:'fire'}`,true)
+
+    const[pokemonListState,setPokemonListState] = usePokemonList();
+
 
     useEffect(()=>{
         downloadPokemons();
-        console.log(pokemonListHookResponse);
-    },[])
+        console.log("list", pokemon.types, pokemonListState)
+    },[]);
+
+    return [ pokemon ];
 }
 export default usePokemonDetails;
