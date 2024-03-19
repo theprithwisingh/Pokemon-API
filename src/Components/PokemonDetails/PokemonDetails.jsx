@@ -1,26 +1,13 @@
 import './PokemonDetails.css'
-import axios from "axios"
-import { useEffect, useState } from "react";
+// import {useState } from "react";
 import { useParams } from "react-router-dom"
+import usePokemonDetails from '../../Hooks/usePokemonDetail';
+
 
 function PokemonDetails() {
  const {id}  = useParams();
- const [pokemon, setPokemon]= useState({})
- async function downloadPokemon(){
-  const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
-  // console.log(response.data);
-  setPokemon({
-    name: response.data.name,
-    image: response.data.sprites.other.dream_world.front_default,
-    weight: response.data.weight,
-    height: response.data.height,
-    types: response.data.types.map((t)=>t.type.name)
-  })
- }
+ const [pokemon]= usePokemonDetails(id);
  
- useEffect(()=>{
-  downloadPokemon()
- },[]); // empty array rkhenge kyoki first load pr hi render krna chahte hai .
   return (
     <div className="pokemon-details-wrapper">
         <img className="pokemon-details-image" src={pokemon.image}/>
