@@ -5,8 +5,10 @@
   }
   
   #pokedex-heading {
-    margin: 0 auto;
+    /* margin:  auto; */
+    text-align: center;
     letter-spacing: 5px;
+    /* border-bottom: 3px solid black ; */
   }
 h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
