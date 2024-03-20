@@ -15,8 +15,6 @@ function usePokemonList(){
             const response = await axios.get(pokemonListState.pokedexUrl)
 
             const pokemonResults = response.data.results;
-            console.log("ise" ,response.data.pokemon)
-            console.log(pokemonListState);
             setPokemonListState((state)=>({
                 ...state,
                 nextUrl: response.data.next,
@@ -28,7 +26,6 @@ function usePokemonList(){
 
         //passing that promise array to axios.all
         const pokemonData = await axios.all(pokemonResultPromise);
-        console.log(pokemonData);
 
         const pokeListResult  = pokemonData.map((pokeData)=>{
             const pokemon  = pokeData.data;

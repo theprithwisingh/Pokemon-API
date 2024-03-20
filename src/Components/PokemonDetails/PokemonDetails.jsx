@@ -18,14 +18,15 @@ function PokemonDetails() {
         </div>
 
         {
-            pokemon.types && pokemon.similarPokemons &&
+            pokemon.types && pokemon.similarPokemons && (
 
             <div>
                 more {pokemon.types[0]} types Pokemons
                 <ul>
-                    {pokemon.similarPokemons.map((p)=> <li key={p.pokemon.id}>{p.pokemon.name}</li>)}
+                    {pokemon.similarPokemons.map((p)=>( <li key={p.pokemon.id}>{p.pokemon.name}</li>))}
                 </ul>
             </div>
+            )
         }
     </div>
     )
